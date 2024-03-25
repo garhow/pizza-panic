@@ -12,13 +12,13 @@ config_version=5
 
 config/name="Pizza Panic!"
 config/description="A VR version of Pizzatron 3000 from Club penguin"
-run/main_scene="res://Scenes/Main Scene.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+run/main_scene="res://scenes/main_scene.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://project/assets/icon.svg"
 
 [autoload]
 
-Game="*res://Game.gd"
+Game="*res://scripts/Game.gd"
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 
 [editor_plugins]
@@ -49,4 +49,5 @@ textures/vram_compression/import_etc2_astc=true
 [xr]
 
 openxr/enabled=true
+openxr/default_action_map="res://project/preferences/openxr_action_map.tres"
 shaders/enabled=true
