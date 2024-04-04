@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://tk528j1pmp4m"]
 
 [ext_resource type="Script" path="res://scenes/kitchen/IngredientHand.gd" id="1_76jyf"]
-[ext_resource type="AudioStream" uid="uid://fi0iv7ovtvms" path="res://audio/Grab.mp3" id="3_7mdu0"]
+[ext_resource type="AudioStream" uid="uid://fi0iv7ovtvms" path="res://sound/Grab.mp3" id="3_7mdu0"]
 [ext_resource type="Script" path="res://scenes/kitchen/IndicatorManager.gd" id="3_uufha"]
-[ext_resource type="AudioStream" uid="uid://cnbtgxlvh8iuu" path="res://audio/Release.mp3" id="4_akjjb"]
+[ext_resource type="AudioStream" uid="uid://cnbtgxlvh8iuu" path="res://sound/Release.mp3" id="4_akjjb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kn55i"]
 size = Vector3(0.1, 0.1, 0.3)

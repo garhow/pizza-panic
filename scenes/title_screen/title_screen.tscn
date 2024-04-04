@@ -1,6 +1,117 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmw038suxr7k4"]
+[gd_scene load_steps=8 format=3 uid="uid://cmw038suxr7k4"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/Controller.gd" id="1_hg7pa"]
+[ext_resource type="Texture2D" uid="uid://i7jgpn4agrim" path="res://project/assets/godot_logo.svg" id="1_msfna"]
+[ext_resource type="AudioStream" uid="uid://bkle6cwcy1gjx" path="res://sound/music/French Mood.mp3" id="2_v0v5j"]
+
+[sub_resource type="Animation" id="Animation_ioqh5"]
+resource_name = "Startup"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Environment:environment:background_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.980392, 0.580392, 0.286275, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Godot Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.9, 1.5, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Title:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Godot Attribution:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 0.9, 1.5, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4dmut"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Environment:environment:background_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.980392, 0.580392, 0.286275, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Godot Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Title:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Godot Attribution:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8sxk"]
+_data = {
+"RESET": SubResource("Animation_4dmut"),
+"Startup": SubResource("Animation_ioqh5")
+}
 
 [sub_resource type="Environment" id="Environment_0d3yh"]
 background_mode = 1
@@ -9,25 +120,39 @@ background_energy_multiplier = 0.75
 
 [node name="Title Screen" type="Node3D"]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../XR Origin/Camera")
+libraries = {
+"": SubResource("AnimationLibrary_y8sxk")
+}
+autoplay = "Startup"
+
+[node name="Title" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+text = "Pizza Panic!
+
+Press any button to start!"
+font_size = 102
+
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0d3yh")
-
-[node name="Label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-text = "pizza panic!
-
-press any button to start"
-font_size = 102
-
-[node name="Label2" type="Label3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 4)
-text = "this is a proof of concept
-by garrett howard"
-font_size = 102
 
 [node name="XR Origin" type="XROrigin3D" parent="."]
 
 [node name="Camera" type="XRCamera3D" parent="XR Origin"]
+
+[node name="Godot Logo" type="Sprite3D" parent="XR Origin/Camera"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -4)
+texture = ExtResource("1_msfna")
+
+[node name="Godot Attribution" type="Label3D" parent="XR Origin/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, -4)
+text = "Made with
+
+
+Godot Engine"
+font_size = 128
+outline_size = 0
 
 [node name="Left Controller" type="XRController3D" parent="XR Origin"]
 tracker = &"left_hand"
@@ -36,3 +161,9 @@ script = ExtResource("1_hg7pa")
 [node name="Right Controller" type="XRController3D" parent="XR Origin"]
 tracker = &"right_hand"
 script = ExtResource("1_hg7pa")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v0v5j")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"

@@ -1,16 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dckklbcbq5q4"]
+[gd_scene load_steps=3 format=3 uid="uid://dckklbcbq5q4"]
 
 [ext_resource type="Script" path="res://scenes/Main Scene.gd" id="1_y0wqp"]
-[ext_resource type="AudioStream" uid="uid://b5gpm4o8taqkr" path="res://audio/Music.mp3" id="2_5h4py"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_wox7f"]
 
 [node name="Main Scene" type="Node3D"]
 script = ExtResource("1_y0wqp")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_5h4py")
-volume_db = -2.0
-autoplay = true
 
 [node name="XRToolsStartXR" type="Node" parent="."]
 script = ExtResource("2_wox7f")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cosxbemwdlgnd"]
+[gd_scene load_steps=41 format=3 uid="uid://cosxbemwdlgnd"]
 
 [ext_resource type="Script" path="res://scenes/kitchen/Kitchen.gd" id="1_lp1ex"]
 [ext_resource type="Script" path="res://scenes/kitchen/Dispenser.gd" id="2_jg3wa"]
@@ -10,8 +10,9 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/movement_direct.gd" id="8_4r0s8"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="9_1xiam"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="10_o6r6g"]
-[ext_resource type="AudioStream" uid="uid://jr1w3n80olfn" path="res://audio/Kitchen/Correct.mp3" id="11_a3ygf"]
-[ext_resource type="AudioStream" uid="uid://w1d5fttfsxu8" path="res://audio/Kitchen/Incorrect.mp3" id="12_hcvfh"]
+[ext_resource type="AudioStream" uid="uid://jr1w3n80olfn" path="res://sound/Kitchen/Correct.mp3" id="11_a3ygf"]
+[ext_resource type="AudioStream" uid="uid://w1d5fttfsxu8" path="res://sound/Kitchen/Incorrect.mp3" id="12_hcvfh"]
+[ext_resource type="AudioStream" uid="uid://b5gpm4o8taqkr" path="res://sound/music/Pizzatron 3000.mp3" id="13_v56kf"]
 
 [sub_resource type="Curve3D" id="Curve3D_h45vr"]
 _data = {
@@ -450,3 +451,9 @@ volume_db = 8.0
 [node name="Incorrect" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("12_hcvfh")
 volume_db = 8.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_v56kf")
+volume_db = -2.0
+autoplay = true
+bus = &"Music"
