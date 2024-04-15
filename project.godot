@@ -15,14 +15,14 @@ config/name_localized={
 "nl": "Pizza-Paniek!"
 }
 config/description="Unleash your inner pizzaiolo!"
-config/version="0.1.0"
+config/version="0.1.1"
 run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://project/assets/icon.svg"
 
 [autoload]
 
-Game="*res://scripts/Game.gd"
+Game="*res://scripts/game.gd"
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 
 [editor_plugins]
@@ -49,6 +49,7 @@ import/fbx/enabled=false
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 
 [xr]
 

@@ -103,11 +103,11 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 0.05
 
-[node name="IngredientHand" type="Area3D" node_paths=PackedStringArray("IndicatorManager")]
+[node name="IngredientHand" type="Area3D" node_paths=PackedStringArray("indicator_manager")]
 collision_layer = 131072
 collision_mask = 3
 script = ExtResource("1_76jyf")
-IndicatorManager = NodePath("Indicators")
+indicator_manager = NodePath("Indicators")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
