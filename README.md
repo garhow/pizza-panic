@@ -20,4 +20,6 @@ Please report bugs either by submitting an issue in this GitHub repository, or r
 * **Artwork**: [CorMemory](https://www.youtube.com/@CorMemory), [jax1](https://www.youtube.com/@jax1vr)
 * **Developer**: Garrett Howard
 
+Special thanks to Alex, Joey, and Max.
+
 Proudly made with the [Godot Engine](https://godotengine.org/).
