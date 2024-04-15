@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Pizza Panic!"
-config/description="A VR version of Pizzatron 3000 from Club penguin"
+config/name_localized={
+"nl": "Pizza-Paniek!"
+}
+config/description="Unleash your inner pizzaiolo!"
+config/version="0.1.0"
 run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://project/assets/icon.svg"
@@ -49,5 +53,4 @@ textures/vram_compression/import_etc2_astc=true
 [xr]
 
 openxr/enabled=true
-openxr/default_action_map="res://project/preferences/openxr_action_map.tres"
 shaders/enabled=true

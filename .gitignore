@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # Android build directory
 android/build
+
+# Common directories for binaries
+bin*
