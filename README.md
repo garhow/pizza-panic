@@ -18,6 +18,7 @@ Please report bugs either by submitting an issue in this GitHub repository, or r
 * **Godot Engine**: Juan Linietsky, Ariel Manzur, and contributors
 * **Music**: [William King](https://pixabay.com/users/william_king-33448498/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=161417), New Horizon Interactive
 * **Artwork**: [CorMemory](https://www.youtube.com/@CorMemory), [jax1](https://www.youtube.com/@jax1vr)
+* **Soundtrack**: [CorMemory](https://www.youtube.com/@CorMemory)
 * **Developer**: Garrett Howard
 
 Special thanks to Alex, Joey, and Max.
