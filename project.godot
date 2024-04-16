@@ -18,6 +18,9 @@ config/description="Unleash your inner pizzaiolo!"
 config/version="0.1.1"
 run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://project/assets/icon.svg"
 
 [autoload]
