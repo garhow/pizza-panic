@@ -99,7 +99,7 @@ albedo_color = Color(0, 0, 0, 1)
 grow = true
 grow_amount = 0.01
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gluda"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy5wr"]
 next_pass = SubResource("StandardMaterial3D_y86a2")
 diffuse_mode = 3
 specular_mode = 1
@@ -107,7 +107,7 @@ roughness = 0.0
 emission_energy_multiplier = 1.88
 
 [sub_resource type="SphereMesh" id="SphereMesh_78jjf"]
-material = SubResource("StandardMaterial3D_gluda")
+material = SubResource("StandardMaterial3D_wy5wr")
 radius = 0.1
 height = 0.3
 
@@ -385,8 +385,9 @@ collision_mask = 7
 [node name="Building" type="Node3D" parent="Prototype Geometry"]
 
 [node name="Floor" type="CSGBox3D" parent="Prototype Geometry/Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 use_collision = true
-size = Vector3(5, 1, 5)
+size = Vector3(5, 0, 5)
 material = ExtResource("3_s27wd")
 
 [node name="Front Wall" type="CSGBox3D" parent="Prototype Geometry/Building"]
@@ -489,6 +490,7 @@ mesh = SubResource("SphereMesh_78jjf")
 [node name="Player Body" type="CharacterBody3D" parent="XR Origin"]
 top_level = true
 script = ExtResource("9_1xiam")
+player_height_max = 1.8
 
 [node name="Lighting" type="Node3D" parent="."]
 

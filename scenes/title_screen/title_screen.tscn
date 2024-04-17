@@ -1,128 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmw038suxr7k4"]
+[gd_scene load_steps=13 format=3 uid="uid://cmw038suxr7k4"]
 
-[ext_resource type="Script" path="res://scenes/title_screen/Controller.gd" id="1_hg7pa"]
+[ext_resource type="Texture2D" uid="uid://doht0v2xa15pf" path="res://project/assets/itch/banner.png" id="1_t5bld"]
 [ext_resource type="AudioStream" uid="uid://bkle6cwcy1gjx" path="res://sound/music/French Mood.mp3" id="2_v0v5j"]
+[ext_resource type="PackedScene" uid="uid://irxkgbtie4x5" path="res://scenes/controls/function_pointer.tscn" id="3_7b7gh"]
 [ext_resource type="AudioStream" uid="uid://ba78xypd7roq5" path="res://sound/ambience/restaurant.ogg" id="4_861nl"]
 [ext_resource type="Material" uid="uid://civ7vwsfavl1g" path="res://scenes/kitchen/materials/floor.tres" id="5_ox5nm"]
-
-[sub_resource type="Animation" id="Animation_4dmut"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Environment:environment:fog_density")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.02]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Title:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../Title:outline_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../Title:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ioqh5"]
-resource_name = "Startup"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("../../Environment:environment:fog_density")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(2.5, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.02]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Title:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2.8, 3.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../Title:outline_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2.8, 3.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../Title:scale")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(2.8, 3, 3.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.8, 0.8, 0.8), Vector3(1.2, 1.2, 1.2), Vector3(1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8sxk"]
-_data = {
-"RESET": SubResource("Animation_4dmut"),
-"Startup": SubResource("Animation_ioqh5")
-}
+[ext_resource type="PackedScene" uid="uid://7ka3yvnjhep6" path="res://scenes/misc/viewport_2d_in_3d.tscn" id="6_diui7"]
+[ext_resource type="PackedScene" uid="uid://bhjo8743vwkru" path="res://scenes/title_screen/user_interface.tscn" id="7_foyiv"]
 
 [sub_resource type="Environment" id="Environment_0d3yh"]
-background_mode = 1
-background_color = Color(0.980392, 0.580392, 0.286275, 1)
-background_energy_multiplier = 0.75
 fog_enabled = true
 fog_light_color = Color(0.980392, 0.580392, 0.286275, 1)
 fog_density = 0.02
 fog_sky_affect = 0.484
 fog_height = -1024.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2of7d"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gluda"]
+next_pass = SubResource("StandardMaterial3D_2of7d")
+diffuse_mode = 3
+specular_mode = 1
+roughness = 0.0
+emission_energy_multiplier = 1.88
+
+[sub_resource type="SphereMesh" id="SphereMesh_okn6i"]
+material = SubResource("StandardMaterial3D_gluda")
+radius = 0.1
+height = 0.3
 
 [sub_resource type="BoxMesh" id="BoxMesh_l7y2y"]
 material = ExtResource("5_ox5nm")
@@ -130,22 +40,13 @@ size = Vector3(512, 0, 512)
 
 [node name="Title Screen" type="Node3D"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../XR Origin/Camera")
-libraries = {
-"": SubResource("AnimationLibrary_y8sxk")
-}
-autoplay = "Startup"
-
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0d3yh")
 
-[node name="Title" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
-text = "Pizza Panic!
-
-Press any button to start!"
-font_size = 102
+[node name="Title" type="Sprite3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.590885, -0.104189, 0, 0.104189, 0.590885, 0, 3.4, -4)
+texture_filter = 5
+texture = ExtResource("1_t5bld")
 
 [node name="XR Origin" type="XROrigin3D" parent="."]
 
@@ -153,11 +54,21 @@ font_size = 102
 
 [node name="Left Controller" type="XRController3D" parent="XR Origin"]
 tracker = &"left_hand"
-script = ExtResource("1_hg7pa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XR Origin/Left Controller"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_okn6i")
+
+[node name="FunctionPointer" parent="XR Origin/Left Controller" instance=ExtResource("3_7b7gh")]
 
 [node name="Right Controller" type="XRController3D" parent="XR Origin"]
 tracker = &"right_hand"
-script = ExtResource("1_hg7pa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XR Origin/Right Controller"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_okn6i")
+
+[node name="FunctionPointer" parent="XR Origin/Right Controller" instance=ExtResource("3_7b7gh")]
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_l7y2y")
@@ -174,3 +85,13 @@ bus = &"Music"
 stream = ExtResource("4_861nl")
 autoplay = true
 bus = &"Ambience"
+
+[node name="Menu" parent="." instance=ExtResource("6_diui7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -4)
+screen_size = Vector2(3.2, 1.2)
+scene = ExtResource("7_foyiv")
+viewport_size = Vector2(320, 120)
+unshaded = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhjo8743vwkru"]
+
+[ext_resource type="Script" path="res://scenes/title_screen/main_menu.gd" id="1_6y76h"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6y76h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(320, 120)
+layout_mode = 1
+offset_right = 185.0
+offset_bottom = 94.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+dragger_visibility = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VSplitContainer"]
+layout_mode = 2
+text = "Gamemodes:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Arcade" type="Button" parent="MarginContainer/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Arcade"
+
+[node name="Endless" type="Button" parent="MarginContainer/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Endless"
+
+[connection signal="pressed" from="MarginContainer/VSplitContainer/HBoxContainer/Arcade" to="." method="_start_arcade"]
