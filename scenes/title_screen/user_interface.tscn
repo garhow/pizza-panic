@@ -45,7 +45,7 @@ text = "Arcade"
 [node name="Endless" type="Button" parent="MarginContainer/VSplitContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-disabled = true
 text = "Endless"
 
 [connection signal="pressed" from="MarginContainer/VSplitContainer/HBoxContainer/Arcade" to="." method="_start_arcade"]
+[connection signal="pressed" from="MarginContainer/VSplitContainer/HBoxContainer/Endless" to="." method="_start_endless"]

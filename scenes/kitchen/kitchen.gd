@@ -6,7 +6,7 @@ class Stats:
 	var remaining: int
 	
 	func _init(count: int):
-		amount = count
+		amount = 0
 		remaining = count
 
 const pizza_scene = preload("res://scenes/pizza/pizza.tscn")
@@ -21,6 +21,13 @@ class Recipe:
 	var shrimp: int
 	var pineapple: int
 
+enum Gamemode {
+	ARCADE,
+	ENDLESS,
+}
+
+@export var gamemode: Gamemode
+
 @export var recipe_label: Label3D
 
 @export var stats_label: Label3D
@@ -31,7 +38,7 @@ class Recipe:
 @export var music: AudioStreamPlayer
 
 ## Game stats
-@onready var stats = Stats.new(40)
+var stats: Stats
 
 var recipe: Recipe: set = _set_recipe
 
@@ -42,6 +49,9 @@ var pizza: Pizza
 var current_speed
 
 func _ready() -> void:
+	match gamemode:
+		Gamemode.ARCADE: stats = Stats.new(40)
+		Gamemode.ENDLESS: stats = Stats.new(-1)
 	_generate_recipe()
 	_spawn_pizza()
 	_update_stats()
@@ -101,13 +111,15 @@ func _check_unfinished_pizza() -> void:
 
 func _check_finished_pizza() -> void:
 	if completed:
-		stats.remaining -= 1
+		stats.amount += 1
+		if gamemode != Gamemode.ENDLESS:
+			stats.remaining -= 1
 		speed += SPEED_INCREMENT
 		_generate_recipe()
 		_spawn_pizza()
 	else:
 		stats.mistakes += 1
-		speed -= SPEED_INCREMENT
+		# speed -= SPEED_INCREMENT
 		if stats.mistakes < 3:
 			var tween = get_tree().create_tween()
 			tween.tween_property(music, "pitch_scale", music.pitch_scale + 0.1, 2)
@@ -118,7 +130,7 @@ func _check_finished_pizza() -> void:
 	_update_stats()
 
 func _update_stats() -> void:
-	stats_label.text = "Pizzas Made: %s\nPizzas Left: %s\nMistakes: %s" % [stats.amount - stats.remaining, stats.remaining, stats.mistakes]
+	stats_label.text = "Pizzas Made: %s\nPizzas Left: %s\nMistakes: %s" % [stats.amount, "∞" if stats.remaining == -1 else stats.remaining, stats.mistakes]
 	if stats.remaining == 0:
 		$Endgame/Victory.visible = true
 		await get_tree().create_timer(5).timeout

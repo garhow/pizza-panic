@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwel56eg5ihao"]
+
+[ext_resource type="PackedScene" uid="uid://cosxbemwdlgnd" path="res://scenes/kitchen/kitchen.tscn" id="1_bs1n1"]
+
+[node name="Endless" type="Node3D"]
+
+[node name="Kitchen" parent="." instance=ExtResource("1_bs1n1")]
+gamemode = 1
