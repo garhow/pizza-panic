@@ -16,10 +16,16 @@ const SPEED_INCREMENT = 0.00005
 
 class Recipe:
 	var sauce: Ingredient.Sauce
-	var cheese: bool
+	var cheese: bool = true
 	var pepperoni: int
 	var shrimp: int
 	var pineapple: int
+	
+	func _init():
+		sauce = Ingredient.Sauce.TOMATO if randi_range(0, 1) else Ingredient.Sauce.HOT
+		pepperoni = randi_range(0, 5)
+		shrimp = randi_range(0, 5)
+		pineapple = randi_range(0, 5)
 
 enum Gamemode {
 	ARCADE,
@@ -49,10 +55,10 @@ var pizza: Pizza
 var current_speed
 
 func _ready() -> void:
+	recipe = Recipe.new()
 	match gamemode:
 		Gamemode.ARCADE: stats = Stats.new(40)
 		Gamemode.ENDLESS: stats = Stats.new(-1)
-	_generate_recipe()
 	_spawn_pizza()
 	_update_stats()
 
@@ -62,28 +68,6 @@ func _physics_process(delta: float) -> void:
 		pizza.progress_ratio += current_speed
 		if pizza.progress_ratio >= 1:
 			_check_finished_pizza()
-
-func _generate_recipe() -> void:
-	var new_recipe = Recipe.new()
-	
-	## Sauce
-	new_recipe.sauce = Ingredient.Sauce.TOMATO if randi_range(0, 1) else Ingredient.Sauce.HOT
-	
-	## Cheese
-	new_recipe.cheese = true
-	
-	## Pepperoni / Shrimp / Pineapple
-	match randi_range(0, 6):
-		3: new_recipe.pepperoni = 5
-		4: new_recipe.shrimp = 5
-		5: new_recipe.pineapple = 5
-		6:
-			new_recipe.pepperoni = 1
-			new_recipe.shrimp = 1
-			new_recipe.pineapple = 1
-	
-	## Apply recipe
-	recipe = new_recipe
 
 func _spawn_pizza() -> void:
 	if pizza:
@@ -115,7 +99,7 @@ func _check_finished_pizza() -> void:
 		if gamemode != Gamemode.ENDLESS:
 			stats.remaining -= 1
 		speed += SPEED_INCREMENT
-		_generate_recipe()
+		recipe = Recipe.new()
 		_spawn_pizza()
 	else:
 		stats.mistakes += 1

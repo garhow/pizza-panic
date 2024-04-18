@@ -538,3 +538,7 @@ font_size = 77
 libraries = {
 "": SubResource("AnimationLibrary_ojahh")
 }
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 2, 1, 2)
+current = true
