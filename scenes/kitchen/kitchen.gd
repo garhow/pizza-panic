@@ -114,7 +114,7 @@ func _check_finished_pizza() -> void:
 	_update_stats()
 
 func _update_stats() -> void:
-	stats_label.text = "Pizzas Made: %s\nPizzas Left: %s\nMistakes: %s" % [stats.amount, "∞" if stats.remaining == -1 else stats.remaining, stats.mistakes]
+	stats_label.text = "Pizzas Made: %s\nPizzas Left: %s\nMistakes: %s" % [stats.amount, "∞" if stats.remaining == -1 else str(stats.remaining), stats.mistakes]
 	if stats.remaining == 0:
 		$Endgame/Victory.visible = true
 		await get_tree().create_timer(5).timeout
