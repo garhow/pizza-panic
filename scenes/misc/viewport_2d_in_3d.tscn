@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://7ka3yvnjhep6"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="1_5oudy"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="2_fjpev"]
+[ext_resource type="Script" uid="uid://dmw61fniytplf" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="1_5oudy"]
+[ext_resource type="Script" uid="uid://cfwusbi8rrmmj" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="2_fjpev"]
 
 [sub_resource type="QuadMesh" id="1"]
 resource_local_to_scene = true

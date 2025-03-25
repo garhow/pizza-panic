@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dckklbcbq5q4"]
 
-[ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_y0wqp"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_wox7f"]
+[ext_resource type="Script" uid="uid://ccrn7etn6c3ey" path="res://scenes/main_scene.gd" id="1_y0wqp"]
+[ext_resource type="Script" uid="uid://cgdk2pwl5bk6n" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_wox7f"]
 
 [node name="Main Scene" type="Node3D"]
 script = ExtResource("1_y0wqp")

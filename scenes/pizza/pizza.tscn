@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dysxyugawbift"]
 
-[ext_resource type="Script" path="res://scenes/pizza/Pizza.gd" id="1_d07gq"]
-[ext_resource type="Script" path="res://scenes/pizza/PizzaArea.gd" id="2_6sb2w"]
+[ext_resource type="Script" uid="uid://qr7i1hyftuqr" path="res://scenes/pizza/Pizza.gd" id="1_d07gq"]
+[ext_resource type="Script" uid="uid://dqlef2mu5dir1" path="res://scenes/pizza/PizzaArea.gd" id="2_6sb2w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f03c3"]
 shading_mode = 0
